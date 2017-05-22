@@ -24,19 +24,17 @@ namespace HJCS.SageAssessment.WebAPI
         }
 
         public IConfigurationRoot Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
             services.AddDbContext<SalesContext>(ops => ops.UseInMemoryDatabase());
 
             services.AddMvc();
 
             services.AddScoped<IRepositoryReadOnly<Customer>, CustomerRepository>();
+            services.AddScoped<IRepository<Invoice>, InvoiceRepository>();
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));

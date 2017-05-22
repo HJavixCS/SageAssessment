@@ -20,6 +20,8 @@ namespace HJCS.SageAssessment.Domain.Model
 
         public Status Status { get; set; }
 
+        public long CustomerId { get; set; }
+
         public Customer Customer { get; set; }
     }
 
