@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace HJCS.SageAssessment
+namespace HJCS.SageAssessment.WebAPI
 {
     public class Program
     {

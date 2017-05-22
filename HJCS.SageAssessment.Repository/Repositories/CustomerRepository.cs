@@ -25,9 +25,10 @@ namespace HJCS.SageAssessment.Repository.Repositories
 
         private void PopulateCustomers()
         {
-            _context.Customers.Add(new Customer { FirstName = "Jonh", LastName = "Smith" });
-            _context.Customers.Add(new Customer { FirstName = "Sara", LastName = "Jonhson" });
-            _context.Customers.Add(new Customer { FirstName = "Bob", LastName = "Anderson" });
+            _context.Customers.Add(new Customer { FirstName = "Jonh", LastName = "Smith", CustomerNumber = "1001" });
+            _context.Customers.Add(new Customer { FirstName = "Sara", LastName = "Jonhson", CustomerNumber = "1002" });
+            _context.Customers.Add(new Customer { FirstName = "Bob", LastName = "Anderson", CustomerNumber = "1003" });
+            _context.SaveChanges();
         }
 
         public Customer FindById(long id)

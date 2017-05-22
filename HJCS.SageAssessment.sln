@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HJCS.SageAssessment", "HJCS.SageAssessment\HJCS.SageAssessment.csproj", "{432F93CB-510F-482D-A3D8-C9BCE98A3911}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HJCS.SageAssessment.WebAPI", "HJCS.SageAssessment\HJCS.SageAssessment.WebAPI.csproj", "{432F93CB-510F-482D-A3D8-C9BCE98A3911}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HJCS.SageAssessment.Domain", "HJCS.SageAssessment.Domain\HJCS.SageAssessment.Domain.csproj", "{47BC71AC-AA9C-4622-8C08-1050FBF6766F}"
 EndProject

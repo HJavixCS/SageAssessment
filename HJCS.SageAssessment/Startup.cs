@@ -9,7 +9,7 @@ using HJCS.SageAssessment.Domain.Repositories;
 using HJCS.SageAssessment.Domain.Model;
 using HJCS.SageAssessment.Repository.Repositories;
 
-namespace HJCS.SageAssessment
+namespace HJCS.SageAssessment.WebAPI
 {
     public class Startup
     {
