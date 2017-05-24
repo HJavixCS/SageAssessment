@@ -15,19 +15,19 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
             var actionURL = $"{WebApiUrl}/invoice";
             var response = DataRetriever.GetStringAsync(actionURL);
             var invoices = JsonConvert.DeserializeObject<List<Invoice>>(response);
-            return View();
+            return View(invoices);
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Sage Assessment";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Héctor Javier Castillo Suazo";
 
             return View();
         }
