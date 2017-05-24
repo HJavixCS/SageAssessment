@@ -33,7 +33,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Invoice invoice)
+        public async Task<IActionResult> Create([Bind("Date, Description, Amount, CustomerId")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return View(invoice);
+                    return RedirectToAction("Index");
                 }
             }
             return View(invoice);

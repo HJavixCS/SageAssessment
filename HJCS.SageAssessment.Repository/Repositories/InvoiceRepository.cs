@@ -19,9 +19,7 @@ namespace HJCS.SageAssessment.Repository.Repositories
 
         public void Add(Invoice item)
         {
-            item.Date = DateTime.Now;
             item.Status = Status.Pending;
-
             _context.Invoices.Add(item);
             _context.SaveChanges();
         }

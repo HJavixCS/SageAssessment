@@ -10,13 +10,13 @@ namespace HJCS.SageAssessment.Domain.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        public string Number { get; set; }
+        public string Number => Id.ToString();
 
         public DateTime Date { get; set; }
 
         public string Description { get; set; }
 
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
 
         public Status Status { get; set; }
 

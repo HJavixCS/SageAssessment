@@ -18,16 +18,15 @@ namespace HJCS.SageAssessment.Repository.Repositories
 
             if (_context.Customers.Count() == 0)
             {
-                // TODO: Implement cache?
                 PopulateCustomers();
             }
         }
 
         private void PopulateCustomers()
         {
-            _context.Customers.Add(new Customer { FirstName = "Jonh", LastName = "Smith", CustomerNumber = "1001" });
-            _context.Customers.Add(new Customer { FirstName = "Sara", LastName = "Jonhson", CustomerNumber = "1002" });
-            _context.Customers.Add(new Customer { FirstName = "Bob", LastName = "Anderson", CustomerNumber = "1003" });
+            _context.Customers.Add(new Customer { FirstName = "Jonh", LastName = "Smith" });
+            _context.Customers.Add(new Customer { FirstName = "Sara", LastName = "Jonhson" });
+            _context.Customers.Add(new Customer { FirstName = "Bob", LastName = "Anderson" });
             _context.SaveChanges();
         }
 
