@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HJCS.SageAssessment.Data", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HJCS.SageAssessment.Repository", "HJCS.SageAssessment.Repository\HJCS.SageAssessment.Repository.csproj", "{61193A5F-8941-4AE1-8BCA-101CBBF2DF43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HJCS.SageAssessment.ClientMVC", "HJCS.SageAssessment.Client\HJCS.SageAssessment.ClientMVC.csproj", "{88B74C31-AA4F-4223-95D3-15E6DBC3C943}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{61193A5F-8941-4AE1-8BCA-101CBBF2DF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61193A5F-8941-4AE1-8BCA-101CBBF2DF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61193A5F-8941-4AE1-8BCA-101CBBF2DF43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B74C31-AA4F-4223-95D3-15E6DBC3C943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B74C31-AA4F-4223-95D3-15E6DBC3C943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B74C31-AA4F-4223-95D3-15E6DBC3C943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B74C31-AA4F-4223-95D3-15E6DBC3C943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

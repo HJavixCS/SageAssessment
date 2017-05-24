@@ -15,7 +15,5 @@ namespace HJCS.SageAssessment.Domain.Model
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        //public ICollection<Invoice> Invoices { get; set; }
     }
 }
