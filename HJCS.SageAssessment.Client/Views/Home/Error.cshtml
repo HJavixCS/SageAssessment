@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["message"]</h3>
+
+<div class="panel-danger">
+    
+
+    <div class="text-danger">Status Code: @ViewData["statusCode"]</div>
+
+    <div class="text-info">@ViewData["stackTrace"]</div>
+</div>
+
