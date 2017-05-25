@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using HJCS.SageAssessment.ClientMVC.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Diagnostics;
-using System;
 using HJCS.SageAssessment.ClientMVC.Models.ViewModels;
 
 namespace HJCS.SageAssessment.ClientMVC.Controllers
