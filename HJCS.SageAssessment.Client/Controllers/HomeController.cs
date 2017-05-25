@@ -15,7 +15,6 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var actionURL = $"{WebApiInvoiceUrl}/{id}";
             var response = await HttpClientHelper.GetStringAsync(WebApiInvoiceUri);
 
             if (response.IsSuccessStatusCode)
@@ -39,6 +38,53 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
             {
                 var data = JsonConvert.SerializeObject(invoice);
                 var response = await HttpClientHelper.PostAsync(WebApiInvoiceUri, data);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(invoice);
+        }
+
+        public async Task<IActionResult> Edit(long id)
+        {
+            if (id == default(long))
+            {
+                return NotFound();
+            }
+            var invoice = await FindInvoiceAsync(id);
+            return View(invoice);
+        }
+
+        private async Task<Invoice> FindInvoiceAsync(long id)
+        {
+            var invoice = new Invoice();
+            var actionUri = $"{WebApiInvoiceUri}/{id}";
+            var response = await HttpClientHelper.GetStringAsync(actionUri);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseString = response.Content.ReadAsStringAsync().Result;
+                invoice = JsonConvert.DeserializeObject<Invoice>(responseString);
+            }
+
+            return invoice;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(long id, Invoice invoice)
+        {
+            if (id == default(long))
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var data = JsonConvert.SerializeObject(invoice);
+                var actionUri = $"{WebApiInvoiceUri}/{id}";
+                var response = await HttpClientHelper.PutAsync(actionUri, data);
 
                 if (response.IsSuccessStatusCode)
                 {

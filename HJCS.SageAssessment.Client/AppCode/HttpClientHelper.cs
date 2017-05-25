@@ -19,6 +19,34 @@ namespace HJCS.SageAssessment.ClientMVC.AppCode
             }
         }
 
+        internal static async Task<HttpResponseMessage> PostAsync(string url, string data) 
+        {
+            using (var httpClient = new HttpClient())
+            {
+                InitializeHttpClient(httpClient, url);
+
+                var byteContent = GetByteContent(data);
+
+                var response = await httpClient.PostAsync(url, byteContent);
+
+                return response;
+            }
+        }
+
+        internal static async Task<HttpResponseMessage> PutAsync(string url, string data)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                InitializeHttpClient(httpClient, url);
+
+                var byteContent = GetByteContent(data);
+
+                var response = await httpClient.PutAsync(url, byteContent);
+
+                return response;
+            }
+        }
+
         private static void InitializeHttpClient(HttpClient client, string uri)
         {
             client.BaseAddress = new Uri(uri);
@@ -26,20 +54,12 @@ namespace HJCS.SageAssessment.ClientMVC.AppCode
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        internal static async Task<HttpResponseMessage> PostAsync(string url, string data) 
+        private static ByteArrayContent GetByteContent(string data)
         {
-            using (var httpClient = new HttpClient())
-            {
-                InitializeHttpClient(httpClient, url);
-
-                var buffer = Encoding.UTF8.GetBytes(data);
-                var byteContent = new ByteArrayContent(buffer);
-                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                var response = await httpClient.PostAsync(url, byteContent);
-
-                return response;
-            }
+            var buffer = Encoding.UTF8.GetBytes(data);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            return byteContent;
         }
     }
 }
