@@ -26,7 +26,7 @@ namespace HJCS.SageAssessment.Repository.Repositories
 
         public Invoice FindById(long id)
         {
-            return _context.Invoices.FirstOrDefault(t => t.Id == id);
+            return _context.Invoices.Include(t => t.Customer).FirstOrDefault(t => t.Id == id);
         }
 
         public IEnumerable<Invoice> GetAll()
