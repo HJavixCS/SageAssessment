@@ -24,6 +24,7 @@ namespace HJCS.SageAssessment.ClientMVC.Models.ViewModels
         [Required]
         public decimal Amount { get; set; }
 
+        [Display(Name = "Customer")]
         [Required]
         public long CustomerId { get; set; }
 

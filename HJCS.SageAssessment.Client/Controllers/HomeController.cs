@@ -60,7 +60,22 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
                 return NotFound();
             }
             var invoice = await FindInvoiceAsync(id);
-            return View(invoice);
+            var invoiceEdition = MapInvoiceFromEntity(invoice);
+            return View(invoiceEdition);
+        }
+
+        private InvoiceEdition MapInvoiceFromEntity(Invoice invoice)
+        {
+            return new InvoiceEdition
+            {
+                Id = invoice.Id,
+                Date = invoice.Date,
+                Description = invoice.Description,
+                Number = invoice.Number,
+                Amount = invoice.Amount,
+                Status = invoice.Status,
+                Customer = invoice.Customer.FullName
+            };
         }
 
         [HttpPost]
