@@ -30,7 +30,7 @@ Solution by Héctor Javier Castillo Suazo (https://twitter.com/hjavixcs).
 
 ### What is this repository for? ###
 
-* Visual Studio 2017 Solution (ASP.Net Core). 
+* Visual Studio 2017 Solution (ASP.Net Core). C#, Web API, Repository Pattern, Dependency Injection
 * Storage: Microsoft.EntityFrameworkCore.InMemory  
 * Backend: Web API
 * Frontend: MVC Client
