@@ -26,7 +26,10 @@ namespace HJCS.SageAssessment.Repository.Repositories
         {
             _context.Customers.Add(new Customer { FirstName = "Jonh", LastName = "Smith" });
             _context.Customers.Add(new Customer { FirstName = "Sara", LastName = "Jonhson" });
-            _context.Customers.Add(new Customer { FirstName = "Bob", LastName = "Anderson" });
+            _context.Customers.Add(new Customer { FirstName = "Dan", LastName = "Walace" });
+            _context.Customers.Add(new Customer { FirstName = "Marcos", LastName = "Gonazalez" });
+            _context.Customers.Add(new Customer { FirstName = "Sri", LastName = "Kumar" });
+            _context.Customers.Add(new Customer { FirstName = "Ying", LastName = "Lee" });
             _context.SaveChanges();
         }
 

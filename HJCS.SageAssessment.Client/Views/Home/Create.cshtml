@@ -1,4 +1,4 @@
-﻿@model HJCS.SageAssessment.ClientMVC.Models.Invoice
+﻿@model HJCS.SageAssessment.ClientMVC.Models.ViewModels.InvoiceCreation
 
 @{
     ViewData["Title"] = "Create";
@@ -34,16 +34,16 @@
             </div>
         </div>
         @*<div class="form-group">
-            <label asp-for="Status" class="col-md-2 control-label"></label>
+            <label asp-for="CustomerId" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+                <input asp-for="CustomerId" class="form-control" />
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
         </div>*@
         <div class="form-group">
             <label asp-for="CustomerId" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="CustomerId" class="form-control" />
+                <select asp-for="CustomerId" asp-items="Model.CustomerList" class="form-control" ></select>
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
         </div>
