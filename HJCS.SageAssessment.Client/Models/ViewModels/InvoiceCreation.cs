@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using HJCS.SageAssessment.ClientMVC.AppCode;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,7 @@ namespace HJCS.SageAssessment.ClientMVC.Models.ViewModels
         public string Description { get; set; }
 
         [Required]
+        [DataType(DataType.Currency)]
         public decimal Amount { get; set; }
 
         [Display(Name = "Customer")]

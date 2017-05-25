@@ -14,36 +14,25 @@ namespace HJCS.SageAssessment.ClientMVC.AppCode
             using (var httpClient = new HttpClient())
             {
                 InitializeHttpClient(httpClient, uri);
-
                 return await httpClient.GetAsync(uri);
             }
         }
 
-        internal static async Task<HttpResponseMessage> PostAsync(string url, string data) 
+        internal static async Task<HttpResponseMessage> PostAsync(string uri, string data) 
         {
             using (var httpClient = new HttpClient())
             {
-                InitializeHttpClient(httpClient, url);
-
-                var byteContent = GetByteContent(data);
-
-                var response = await httpClient.PostAsync(url, byteContent);
-
-                return response;
+                InitializeHttpClient(httpClient, uri);
+                return await httpClient.PostAsync(uri, GetByteContent(data));
             }
         }
 
-        internal static async Task<HttpResponseMessage> PutAsync(string url, string data)
+        internal static async Task<HttpResponseMessage> PutAsync(string uri, string data)
         {
             using (var httpClient = new HttpClient())
             {
-                InitializeHttpClient(httpClient, url);
-
-                var byteContent = GetByteContent(data);
-
-                var response = await httpClient.PutAsync(url, byteContent);
-
-                return response;
+                InitializeHttpClient(httpClient, uri);
+                return await httpClient.PutAsync(uri, GetByteContent(data));
             }
         }
 

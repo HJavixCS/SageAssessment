@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HJCS.SageAssessment.ClientMVC.Models
 {
@@ -10,10 +9,12 @@ namespace HJCS.SageAssessment.ClientMVC.Models
 
         public string Number { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Date { get; set; }
         
         public string Description { get; set; }
-        
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Amount { get; set; }
 
         public Status Status { get; set; }
