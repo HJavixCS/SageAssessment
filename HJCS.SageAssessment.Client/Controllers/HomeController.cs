@@ -39,7 +39,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var invoice = GetInvoiceFromModel(invoiceCreation);
+                var invoice = MapInvoiceFromModel(invoiceCreation);
                 var data = JsonConvert.SerializeObject(invoice);
                 var response = await HttpClientHelper.PostAsync(WebApiInvoiceUri, data);
 
@@ -60,8 +60,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
                 return NotFound();
             }
             var invoice = await FindInvoiceAsync(id);
-            var invoiceEdition = MapInvoiceFromEntity(invoice);
-            return View(invoiceEdition);
+            return View(MapInvoiceFromEntity(invoice));
         }
 
         private InvoiceEdition MapInvoiceFromEntity(Invoice invoice)
@@ -154,7 +153,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
             return customers;
         }
 
-        private Invoice GetInvoiceFromModel(InvoiceCreation invoiceCreation)
+        private Invoice MapInvoiceFromModel(InvoiceCreation invoiceCreation)
         {
             return new Invoice
             {
