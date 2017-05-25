@@ -14,11 +14,13 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
     {
         private string  _webApiInvoiceUri;
         private string _webApiCustomerUri;
+        IConfiguration _configuration;
 
         public HomeController(IConfiguration configuration)
         {
-            _webApiInvoiceUri = configuration["WebApi:InvoiceUri"];
-            _webApiCustomerUri = configuration["WebApi:CustomerUri"];
+            _configuration = configuration;
+            _webApiInvoiceUri = _configuration["WebApi:InvoiceUri"];
+            _webApiCustomerUri = _configuration["WebApi:CustomerUri"];
         }
         public async Task<IActionResult> Index()
         {
@@ -106,14 +108,14 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Sage Assessment";
+            ViewData["Message"] = _configuration["AboutMessage"];
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Héctor Javier Castillo Suazo";
+            ViewData["Message"] = _configuration["ContactMessage"];
 
             return View();
         }
