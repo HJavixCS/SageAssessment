@@ -6,17 +6,23 @@ using HJCS.SageAssessment.ClientMVC.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Diagnostics;
 using HJCS.SageAssessment.ClientMVC.Models.ViewModels;
+using Microsoft.Extensions.Configuration;
 
 namespace HJCS.SageAssessment.ClientMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private string  WebApiInvoiceUri => "http://localhost:52379/api/invoice";
-        private string WebApiCustomerUri => "http://localhost:52379/api/customer";
+        private string  _webApiInvoiceUri;
+        private string _webApiCustomerUri;
 
+        public HomeController(IConfiguration configuration)
+        {
+            _webApiInvoiceUri = configuration["WebApi:InvoiceUri"];
+            _webApiCustomerUri = configuration["WebApi:CustomerUri"];
+        }
         public async Task<IActionResult> Index()
         {
-            var response = await HttpClientHelper.GetStringAsync(WebApiInvoiceUri);
+            var response = await HttpClientHelper.GetStringAsync(_webApiInvoiceUri);
 
             if (response.IsSuccessStatusCode)
             {
@@ -40,7 +46,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
             {
                 var invoice = MapInvoiceFromModel(invoiceCreation);
                 var data = JsonConvert.SerializeObject(invoice);
-                var response = await HttpClientHelper.PostAsync(WebApiInvoiceUri, data);
+                var response = await HttpClientHelper.PostAsync(_webApiInvoiceUri, data);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -87,7 +93,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
             if (ModelState.IsValid)
             {
                 var data = JsonConvert.SerializeObject(invoice);
-                var actionUri = $"{WebApiInvoiceUri}/{id}";
+                var actionUri = $"{_webApiInvoiceUri}/{id}";
                 var response = await HttpClientHelper.PutAsync(actionUri, data);
 
                 if (response.IsSuccessStatusCode)
@@ -126,7 +132,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
         private async Task<Invoice> FindInvoiceAsync(long id)
         {
             var invoice = new Invoice();
-            var actionUri = $"{WebApiInvoiceUri}/{id}";
+            var actionUri = $"{_webApiInvoiceUri}/{id}";
             var response = await HttpClientHelper.GetStringAsync(actionUri);
 
             if (response.IsSuccessStatusCode)
@@ -141,7 +147,7 @@ namespace HJCS.SageAssessment.ClientMVC.Controllers
         private async Task<List<Customer>> GetCustomersAsync()
         {
             var customers = new List<Customer>();
-            var response = await HttpClientHelper.GetStringAsync(WebApiCustomerUri);
+            var response = await HttpClientHelper.GetStringAsync(_webApiCustomerUri);
 
             if (response.IsSuccessStatusCode)
             {

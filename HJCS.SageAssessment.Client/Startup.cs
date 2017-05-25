@@ -24,6 +24,7 @@ namespace HJCS.SageAssessment.ClientMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(config => config.ModelBinderProviders.Insert(0, new InvariantDecimalModelBinderProvider()));
+            services.AddSingleton<IConfiguration>(Configuration);
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
