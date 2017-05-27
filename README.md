@@ -25,8 +25,9 @@
 *          It must provide the option to change the status of a given invoice
 ---
 
+Solution Deployed: http://hjcssageassessmentclientmvc.azurewebsites.net/
 
-Solution by Héctor Javier Castillo Suazo (https://twitter.com/hjavixcs).
+Solution by: Héctor Javier Castillo Suazo (https://twitter.com/hjavixcs).
 
 ### What is this repository for? ###
 
